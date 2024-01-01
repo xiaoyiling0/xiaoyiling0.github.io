@@ -1,0 +1,47 @@
+﻿.hm
+{
+	font-size:120px;
+	font-family:字魂59号-创粗黑;
+	font-weight:bold;
+	color:#98D5BA;
+	text-shadow:#63B765 4px 0 0, #63B765 0 4px 0, #63B765 -4px 0 0, #63B765 0 -4px 0,10px 10px 10px #D3E4AF;
+	//-webkit-text-stroke:0.1px #63B765;
+}
+
+.s
+{
+	font-size:50px;
+	font-family:字魂59号-创粗黑;
+	font-weight:bold;
+	color:#98D5BA;
+	-webkit-text-stroke:0.1px #63B765;
+	text-shadow:10px 10px 10px #D3E4AF;
+}
+
+.ymdw
+{
+	font-size:60px;
+	font-family:字魂59号-创粗黑;
+	font-weight:bold;
+	color:#B7DBB6;
+	text-shadow: #63B765 2px 0 0,  #63B765 0 2px 0,  #63B765 -2px 0 0,  #63B765 0 -2px 0,5px 5px 10px #BEF2CD;
+	//-webkit-text-stroke:0.1px #63B765;
+}
+
+.symbol
+{
+	font-size:120px;
+	font-family:字魂59号-创粗黑;
+	color:#98D5BA;
+	letter-spacing:-50px;
+	text-shadow:0px 0px 0px #AEDCBD;
+}
+
+.symbol2
+{
+	font-size:50px;
+	font-family:字魂59号-创粗黑;
+	color:#98D5BA;
+	letter-spacing:-20px;
+	text-shadow:0px 0px 0px #AEDCBD;
+}
