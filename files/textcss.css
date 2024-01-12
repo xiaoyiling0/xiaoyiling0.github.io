@@ -1,0 +1,45 @@
+@font-face{
+	font-family:'genshin';
+	src:url('../fond/zh-cn.woff');	
+}
+
+.pullbutton{
+	position:fixed;
+	width:12%;height:5%;bottom:5%;
+	font-family:'genshin';font-size:100%;color:#AAA297;
+	z-index:0;
+	border:none;
+	background-image: url("../image/button.webp");
+	background-position: center;
+	background-size:100%;
+	background-repeat: no-repeat;
+	background-color:transparent;
+}
+
+.otherbutton{
+	position:fixed;
+	height:4%;bottom:7%;
+	border:none;
+	background-color:#e0ddd4;
+	background-origin:border-box;
+	font-family:'genshin';font-size:100%;color:000000;
+}
+
+.image{
+	position:fixed;
+	width:1.5%;height:3%;bottom:13%;
+}
+
+.num1{
+	position:fixed;
+	bottom:13%;
+	font-family:'genshin';font-size:120%;color:ffffff;
+
+}
+
+
+.main{
+	position:fixed;
+	width:45%;height:45%;right:28%;bottom:30%;
+}
+
