@@ -3,6 +3,11 @@
 	src:url('../fond/zh-cn.woff');	
 }
 
+@font-face{
+	font-family:'icon';
+	src:url('../fond/genshin-icon.woff');	
+}
+
 .pullbutton{
 	position:fixed;
 	width:12%;height:5%;bottom:5%;
@@ -18,12 +23,32 @@
 
 .otherbutton{
 	position:fixed;
-	height:4%;bottom:7%;
+	height:4%;
 	border:none;
 	background-color:#e0ddd4;
 	background-origin:border-box;
 	font-family:'genshin';font-size:100%;color:000000;
 }
+
+.sz{
+	position:fixed;
+	height:4%;width:2.2%;left:35%;bottom:35%;
+	border-radius:50%;
+	color:000000;
+	border:none;
+	background-color:#e0ddd4;
+	background-origin:border-box;
+	font-family:'icon';font-size:150%;
+}
+
+.del{
+	position:fixed;
+	z-index:4;
+	right:4%;top:4%;
+	background-color:transparent;
+	border:none;
+}
+
 
 .image{
 	position:fixed;
@@ -34,12 +59,39 @@
 	position:fixed;
 	bottom:13%;
 	font-family:'genshin';font-size:120%;color:ffffff;
-
 }
 
+.nb{
+	width:100%;height:100%;
+	object-fit:cover;position:fixed;
+	top:0;left:0;z-index:3;
+}
+
+.skipbutton{
+	position:fixed;
+	top:3%;right:3%;width:5%;height:5%;
+	font-family:'genshin';font-size:150%;color:ffffff;
+	z-index:3;
+	background-color:transparent;
+	border:none;
+}
 
 .main{
 	position:fixed;
 	width:45%;height:45%;right:28%;bottom:30%;
 }
 
+.mainname{
+	position:fixed;
+	right:15%;bottom:4%;width:11%;height:90%;
+	font-family:'genshin';font-size:1000%;color:000000;
+	background-image: url("../image/bg-claymore.webp");
+	background-size:90%;
+	background-position:center;
+	background-origin:border-box;
+	z-index:4;
+	overflow:visible;
+	writing-mode: vertical-lr;
+	text-align: center;
+	padding-left:50%;
+}
