@@ -12,11 +12,11 @@ buttons[0].onclick = function(){		//进入流星视频
 	count += n ;
 	var pullnum = pullname(0);
 	if(pullnum>0&&pullnum<=6){		//确定播放视频的src
-		srca = './video/5star-single.mp4';
+		srca = './video/5star-single.webm';
 	}else if(pullnum>6&&pullnum<=57){
-		srca = './video/4star-single.mp4';
+		srca = './video/4star-single.webm';
 	}else{
-		srca = './video/3star-single.mp4';
+		srca = './video/3star-single.webm';
 	}
 	var ve = ne.appendChild(document.createElement('video'));
 	ve.setAttribute('src',srca);
@@ -32,9 +32,9 @@ buttons[1].onclick = function(){
 	for(var i=0;i<n;i++){
 		var pullnum = pullname(i);
 		if(pullnum>0&&pullnum<=6){		//确定播放视频的src
-			srca = './video/5star-multi.mp4';
-		}else if(srca!='./video/5star-multi.mp4'){
-			srca = './video/4star-multi.mp4';
+			srca = './video/5star-multi.webm';
+		}else if(srca!='./video/5star-multi.webm'){
+			srca = './video/4star-multi.webm';
 		}
 	}
 	var ve = ne.appendChild(document.createElement('video'));
