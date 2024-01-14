@@ -30,6 +30,10 @@
 	font-family:'genshin';font-size:100%;color:000000;
 }
 
+#ve{
+	width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0;z-index:2;
+}
+
 .sz{
 	position:fixed;
 	height:4%;width:2.2%;left:35%;bottom:35%;
@@ -41,9 +45,9 @@
 	font-family:'icon';font-size:150%;
 }
 
-.del{
+#close{
 	position:fixed;
-	z-index:4;
+	z-index:10;
 	right:4%;top:4%;
 	background-color:transparent;
 	border:none;
@@ -61,13 +65,13 @@
 	font-family:'genshin';font-size:120%;color:ffffff;
 }
 
-.nb{
+#nb{
 	width:100%;height:100%;
 	object-fit:cover;position:fixed;
 	top:0;left:0;z-index:3;
 }
 
-.skipbutton{
+#skip{
 	position:fixed;
 	top:3%;right:3%;width:5%;height:5%;
 	font-family:'genshin';font-size:150%;color:ffffff;
@@ -81,10 +85,10 @@
 	width:45%;height:45%;right:28%;bottom:30%;
 }
 
-.mainname{
+#mainname{
 	position:fixed;
 	right:15%;bottom:4%;width:11%;height:90%;
-	font-family:'genshin';font-size:1000%;color:000000;
+	font-family:'genshin';font-size:1000%;
 	background-image: url("../image/bg-claymore.webp");
 	background-size:90%;
 	background-position:center;
@@ -94,11 +98,4 @@
 	writing-mode: vertical-lr;
 	text-align: center;
 	padding-left:50%;
-}
-
-.ve{
-	width:100%;height:100%;top:0;left:0;
-	object-fit:cover;
-	position:absolute;
-	z-index:-2;	
 }
