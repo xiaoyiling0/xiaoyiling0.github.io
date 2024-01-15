@@ -109,13 +109,25 @@ var pull4star = function(i){
 };
 
 var pull5star = function(i){
-	switch(Math.floor(Math.random()*3+1)){
+	switch(Math.floor(Math.random()*9+1)){
 		case 1 : 
  			namei='余飞'; break;
 		case 2 : 
  			namei='李娜'; break;
 		case 3 : 
  			namei='严玲'; break;
+		case 4 :
+			namei='刘凯'; break;
+		case 5 :
+			namei='解子洋'; break;
+		case 6 :
+			namei='王波'; break;
+		case 7 ：
+			namei='陈杰'; break;
+		case 8 ：
+			namei='弹簧'; break;
+		case 9 ：
+			namei='杰杰'; break;
 	}
 	return namei;
 }
