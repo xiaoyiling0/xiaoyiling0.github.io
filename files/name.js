@@ -122,11 +122,11 @@ var pull5star = function(i){
 			namei='解子洋'; break;
 		case 6 :
 			namei='王波'; break;
-		case 7 ：
+		case 7 :
 			namei='陈杰'; break;
-		case 8 ：
+		case 8 :
 			namei='弹簧'; break;
-		case 9 ：
+		case 9 :
 			namei='杰杰'; break;
 	}
 	return namei;
