@@ -1,0 +1,272 @@
+{
+  "Version": 3,
+  "Type": 0,
+  "FileReferences": {
+    "Moc": "naxida.moc3",
+    "Textures": [
+      "naxida.4096/texture_00.png"
+    ],
+    "Physics": "naxida.physics3.json",
+    "PhysicsV2": {
+      "File": "naxida.physics3.json"
+    },
+    "Motions": {
+      "Idle": [
+        {
+          "File": "motions/idle.motion3.json",
+          "FadeIn": 0,
+          "FadeOut": 0
+        }
+      ],
+      "Tap": [
+        {
+          "File": "motions/touch.motion3.json",
+          "Sound": "sounds/午休时间到，我想和树莓薄荷饮。用两个和太阳有关的故事和你换，好不好？.mp3",
+          "SoundVolume": 0.925,
+          "Text": "午休时间到，我想和树莓薄荷饮。用两个和太阳有关的故事和你换，好不好？",
+          "FadeIn": 1000,
+          "FadeOut": 1000,
+          "TimeLimit": {
+            "Hour": 12,
+            "Minute": 0,
+            "Sustain": 180
+          }
+        },
+        {
+          "File": "motions/touch.motion3.json",
+          "Sound": "sounds/快去睡吧，放心，我已经为你准备好甜甜的梦啦.mp3",
+          "SoundVolume": 0.864,
+          "Text": "快去睡吧，放心，我已经为你准备好甜甜的梦啦",
+          "FadeIn": 1000,
+          "FadeOut": 1000,
+          "TimeLimit": {
+            "Hour": 21,
+            "Minute": 0,
+            "Sustain": 480
+          }
+        },
+        {
+          "File": "motions/touch.motion3.json",
+          "Sound": "sounds/早上好，我们赶快出发吧，这世上有太多的东西都是[过时不候]的呢.mp3",
+          "SoundVolume": 0.919,
+          "Text": "早上好，我们赶快出发吧，这世上有太多的东西都是[过时不候]的呢",
+          "FadeIn": 1000,
+          "FadeOut": 1000,
+          "TimeLimit": {
+            "Hour": 5,
+            "Minute": 0,
+            "Sustain": 420
+          }
+        },
+        {
+          "File": "motions/touch.motion3.json",
+          "Sound": "sounds/又可以增长见识啦.mp3",
+          "SoundVolume": 0.919,
+          "Text": "又可以增长见识啦",
+          "FadeIn": 1000,
+          "FadeOut": 1000
+        },
+        {
+          "File": "motions/touch.motion3.json",
+          "Sound": "sounds/不知道干什么的话，要不要我带你去转转呀？.wav",
+          "SoundVolume": 0.919,
+          "Text": "不知道干什么的话，要不要我带你去转转呀",
+          "FadeIn": 1000,
+          "FadeOut": 1000
+        },
+        {
+          "File": "motions/touch.motion3.json",
+          "Sound": "sounds/又有心事吗？我来陪你一起想吧！.wav",
+          "SoundVolume": 0.919,
+          "Text": "又有心事嘛 嘿~ 我来陪你一起想吧",
+          "FadeIn": 1000,
+          "FadeOut": 1000
+        },
+        {
+          "File": "motions/touch.motion3.json",
+          "Sound": "sounds/天气真好阿，暖洋洋的，我们的身边马上也要热闹起来了.mp3",
+          "SoundVolume": 0.919,
+          "Text": "天气真好阿，暖洋洋的，我们的身边马上也要热闹起来了",
+          "FadeIn": 1000,
+          "FadeOut": 1000
+        },
+        {
+          "File": "motions/touch.motion3.json",
+          "Sound": "sounds/我等你好久啦.mp3",
+          "SoundVolume": 0.919,
+          "Text": "我等你好久啦",
+          "FadeIn": 1000,
+          "FadeOut": 1000
+        },
+        {
+          "File": "motions/touch.motion3.json",
+          "Sound": "sounds/果然要亲眼去看，才能感受到世界的美.wav",
+          "SoundVolume": 0.919,
+          "Text": "果然要亲眼去看，才能感受到世界的美",
+          "FadeIn": 1000,
+          "FadeOut": 1000
+        },
+        {
+          "File": "motions/touch.motion3.json",
+          "Sound": "sounds/没去过的地方还有很多呢.mp3",
+          "SoundVolume": 0.919,
+          "Text": "没去过的地方还有很多呢",
+          "FadeIn": 1000,
+          "FadeOut": 1000
+        },
+        {
+          "File": "motions/touch.motion3.json",
+          "Sound": "sounds/睡觉时间到了哦.wav",
+          "Text": "睡觉时间到了哦",
+          "FadeIn": 1000,
+          "FadeOut": 1000
+        },
+        {
+          "File": "motions/touch.motion3.json",
+          "Sound": "sounds/就这样看着你 算是爱好嘛.mp3",
+          "Text": "就这样看着你 算是爱好嘛",
+          "FadeIn": 1000,
+          "FadeOut": 1000
+        },
+        {
+          "File": "motions/touch.motion3.json",
+          "Sound": "sounds/听见了嘛 天空正对万物轻语 睡觉时间到啦.mp3",
+          "SoundVolume": 0.925,
+          "Text": "听见了嘛 天空正对万物轻语 睡觉时间到啦",
+          "FadeIn": 1000,
+          "FadeOut": 1000,
+          "TimeLimit": {
+            "Hour": 21,
+            "Minute": 0,
+            "Sustain": 480
+          }
+        }
+      ],
+      "Start": [
+        {
+          "File": "motions/touch.motion3.json",
+          "Sound": "sounds/午休时间到，我想和树莓薄荷饮。用两个和太阳有关的故事和你换，好不好？.mp3",
+          "Text": "午休时间到，我想和树莓薄荷饮。用两个和太阳有关的故事和你换，好不好？",
+          "FadeIn": 1000,
+          "FadeOut": 1000,
+          "TimeLimit": {
+            "Hour": 12,
+            "Minute": 0,
+            "Sustain": 180
+          }
+        },
+        {
+          "File": "motions/touch.motion3.json",
+          "Sound": "sounds/快去睡吧，放心，我已经为你准备好甜甜的梦啦.mp3",
+          "Text": "快去睡吧，放心，我已经为你准备好甜甜的梦啦",
+          "FadeIn": 1000,
+          "FadeOut": 1000,
+          "TimeLimit": {
+            "Hour": 21,
+            "Minute": 0,
+            "Sustain": 480
+          }
+        },
+        {
+          "File": "motions/touch.motion3.json",
+          "Sound": "sounds/早上好，我们赶快出发吧，这世上有太多的东西都是[过时不候]的呢.mp3",
+          "Text": "早上好，我们赶快出发吧，这世上有太多的东西都是[过时不候]的呢",
+          "FadeIn": 1000,
+          "FadeOut": 1000,
+          "TimeLimit": {
+            "Hour": 5,
+            "Minute": 0,
+            "Sustain": 420
+          }
+        }
+      ],
+      "Choices": [
+        {
+          "Text": "选项",
+          "Choices": [
+            {
+              "Text": "打开b站主页",
+              "NextMtn": "selectA:b站主页"
+            },
+            {
+              "Text": "解除静音",
+              "NextMtn": "selectB:解除静音"
+            },
+            {
+              "Text": "静音",
+              "NextMtn": "selectC:静音"
+            }
+          ]
+        }
+      ],
+      "selectA": [
+        {
+          "Name": "b站主页",
+          "Text": "打开网页",
+          "Command": "open_url https://space.bilibili.com/652598151"
+        }
+      ],
+      "selectB": [
+        {
+          "Name": "解除静音",
+          "File": "解除静音",
+          "Command": "unmute_sound 0"
+        }
+      ],
+      "selectC": [
+        {
+          "Name": "静音",
+          "Text": "静音",
+          "Command": "mute_sound 0"
+        }
+      ]
+    }
+  },
+  "Controllers": {
+    "ParamHit": {},
+    "ParamLoop": {},
+    "KeyTrigger": {},
+    "ParamTrigger": {},
+    "AreaTrigger": {},
+    "HandTrigger": {},
+    "EyeBlink": {
+      "MinInterval": 500,
+      "MaxInterval": 6000
+    },
+    "LipSync": {
+      "Gain": 5.0
+    },
+    "MouseTracking": {
+      "SmoothTime": 0.15,
+      "Enabled": true
+    },
+    "AutoBreath": {},
+    "ExtraMotion": {},
+    "Accelerometer": {},
+    "Microphone": {},
+    "Transform": {},
+    "FaceTracking": {},
+    "HandTracking": {},
+    "ParamValue": {},
+    "PartOpacity": {},
+    "ArtmeshOpacity": {},
+    "ArtmeshColor": {},
+    "ArtmeshCulling": {
+      "DefaultMode": 0
+    },
+    "IntimacySystem": {
+      "Enabled": true
+    }
+  },
+  "HitAreas": [
+    {
+      "Name": "l_e_w",
+      "Id": "ArtMesh217",
+      "Motion": "Choices"
+    }
+  ],
+  "Options": {
+    "Id": "1",
+    "MaskBufferSize": 1024
+  }
+}
