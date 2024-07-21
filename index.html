@@ -3,6 +3,46 @@
     <script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/echarts/map/js/china.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/echarts/map/js/province/jiangsu.js"></script>
+    <style type="text/css">
+ 	*{
+        -webkit-touch-callout:none;  /*系统默认菜单被禁用*/
+        -webkit-user-select:none; /*webkit浏览器*/
+        -khtml-user-select:none; /*早期浏览器*/
+        -moz-user-select:none;/*火狐*/
+        -ms-user-select:none; /*IE10*/
+        user-select:none;
+    }
+    </style>
+    <script type="application/javascript">
+            //PC端 使右键和复制失效
+            document.oncontextmenu = new Function("event.returnValue=false");
+            document.onselectstart = new Function("event.returnValue=false");
+            //ios
+            document.oncontextmenu = function (e) {
+                e.preventDefault();
+            };
+            document.onselectstart = function (e) {
+                e.preventDefault();
+            };
+            //安卓
+            document.addEventListener('contextmenu', function (e) {
+                e.preventDefault();
+            });
+            document.ontouchend = function () {
+                throw new Error("NO ERRPR:禁止长按弹出");
+            }
+            window.ontouchstart = function(e) {
+                e.preventDefault();
+            };
+            document.body.addEventListener('touchstart', function () { });
+            document.body.onbeforecopy = function () {
+                window.getSelection().removeAllRanges();
+            }
+            document.body.oncopy = function () {
+                window.getSelection().removeAllRanges();
+                return false;
+            }
+        </script>
 </head>
 <body readonly oncopy="return false" oncut="return false" onpaste="return false">
     <div id="c" style="position:absolute;width: 50%; height: 70%;top:10%;"></div>
