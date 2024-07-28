@@ -213,7 +213,7 @@
     </table>
     </div>
 
-    <script>    //关于手机布局的改动
+        <script>    //关于手机布局的改动
         if (/Mobi|Android|iPhone/i.test(navigator.userAgent)) {     // 当前设备是移动设备
             let map = document.getElementById('map')
             let list = document.getElementById('list')
@@ -226,6 +226,7 @@
             list.style.marginLeft = "auto";
             list.style.marginRight = "auto";
             list.style.width = "100%";
+            document.getElementsById('datalist').style.width = '100%';
             document.getElementsByTagName('h1')[0].style.fontSize = '100%';
             document.getElementsByTagName('table')[1].style.fontSize = '100%';
             document.getElementsByTagName('table')[2].style.fontSize = '100%';
