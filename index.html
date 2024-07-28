@@ -434,8 +434,9 @@
                 document.getElementById('city').disabled = false;
             }
             else{
+                document.getElementById('city').selectedIndex = 0;
                 document.getElementById('city').disabled = true;
-                document.getElementById('city').value = ‘
+
             }
             $.getJSON('14.json',main);
         }
