@@ -159,12 +159,12 @@
         </div>
     </div>
     
-    <table style="position:absolute;width:45%;height:90%;top:5%">
+    <table id="map" style="position:absolute;width:45%;height:90%;top:5%">
         <tr style="height: 50%;"><td><div id="c" style="height: 100%;z-index: 2;"></div></td></tr>
         <tr style="height: 50%;"><td><div id="p" style="height: 100%;z-index: 2;"></div></td></tr>
     </table>
 
-    <div style="position:relative;top:5%">
+    <div id='list' style="position:relative;top:5%">
     <h1 style="position:relative;left:57%;">2024届省句中毕业生去向表</h1>
     <table style="position:relative;left:50%;">
     <tr>
@@ -213,6 +213,20 @@
     </table>
     </div>
 
+    <script>    //关于手机布局的改动
+        if (/Mobi|Android|iPhone/i.test(navigator.userAgent)) {     // 当前设备是移动设备
+            let map = document.getElementById('map')
+            let list = document.getElementById('list')
+            map.style.position = 'relative';
+            map.style.width = '80%';
+            map.style.height = '30%';
+            map.innerHTML = '<tr style="height: 100%;"><td><div id="c" style="height: 100%;z-index: 2;"></div></td></tr>'
+            list.style.marginLeft = "auto";
+            list.style.marginRight = "auto";
+            list.style.width = "100%";
+        }
+    </script>
+    
     <script>
         // 初始化中国echarts实例
         var China = echarts.init(document.getElementById("c"));
