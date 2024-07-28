@@ -1,1 +1,536 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts/map/js/china.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts/map/js/province/jiangsu.js"></script>
+    <script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+    <script type="text/javascript" color="255,0,0" opacity='1' zIndex="-2" count="999" src="//cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js" defer></script>
+    <style type="text/css">
+        .deng-box{position:fixed;top:-30px;right:-20px;z-index:9999;pointer-events:none}
+        .deng-box1{position:fixed;top:-30px;right:100px;z-index:9999;pointer-events:none}
+        .deng-box2{position:fixed;top:-30px;left:-20px;z-index:9999;pointer-events:none}
+        .deng-box3{position:fixed;top:-30px;left:100px;z-index:9999;pointer-events:none}
+        .deng-box1 .deng,.deng-box3 .deng{position:relative;width:120px;height:90px;margin:50px;background:#d8000f;background:rgba(216,0,15,.8);border-radius:50% 50%;-webkit-transform-origin:50% -100px;-webkit-animation:swing 5s infinite ease-in-out;box-shadow:-5px 5px 30px 4px #fc903d}
+        .deng{position:relative;width:120px;height:90px;margin:50px;background:#d8000f;background:rgba(216,0,15,.8);border-radius:50% 50%;-webkit-transform-origin:50% -100px;-webkit-animation:swing 3s infinite ease-in-out;box-shadow:-5px 5px 50px 4px #fa6c00}
+        .deng-a{width:100px;height:90px;background:#d8000f;background:rgba(216,0,15,.1);margin:12px 8px 8px 8px;border-radius:50% 50%;border:2px solid #dc8f03}
+        .deng-b{width:45px;height:90px;background:#d8000f;background:rgba(216,0,15,.1);margin:-4px 8px 8px 26px;border-radius:50% 50%;border:2px solid #dc8f03}
+        .xian{position:absolute;top:-20px;left:60px;width:2px;height:20px;background:#dc8f03}
+        .shui-a{position:relative;width:5px;height:20px;margin:-5px 0 0 59px;-webkit-animation:swing 4s infinite ease-in-out;-webkit-transform-origin:50% -45px;background:orange;border-radius:0 0 5px 5px}
+        .shui-b{position:absolute;top:14px;left:-2px;width:10px;height:10px;background:#dc8f03;border-radius:50%}.shui-c{position:absolute;top:18px;left:-2px;width:10px;height:35px;background:orange;border-radius:0 0 0 5px}
+        .deng:before{position:absolute;top:-7px;left:29px;height:12px;width:60px;content:" ";display:block;z-index:999;border-radius:5px 5px 0 0;border:solid 1px #dc8f03;background:orange;background:linear-gradient(to right,#dc8f03,orange,#dc8f03,orange,#dc8f03)}
+        .deng:after{position:absolute;bottom:-7px;left:10px;height:12px;width:60px;content:" ";display:block;margin-left:20px;border-radius:0 0 5px 5px;border:solid 1px #dc8f03;background:orange;background:linear-gradient(to right,#dc8f03,orange,#dc8f03,orange,#dc8f03)}
+        .deng-t{font-family:华文行楷,Arial,Lucida Grande,Tahoma,sans-serif;font-size:3.2rem;color:#dc8f03;font-weight:700;line-height:85px;text-align:center;margin-left:-0.2rem;}
+        .night .deng-box,.night .deng-box1,.night .deng-t{background:0 0!important}
+        @-moz-keyframes swing{0%{-moz-transform:rotate(-10deg)}50%{-moz-transform:rotate(10deg)}100%{-moz-transform:rotate(-10deg)}}
+        @-webkit-keyframes swing{0%{-webkit-transform:rotate(-10deg)}50%{-webkit-transform:rotate(10deg)}100%{-webkit-transform:rotate(-10deg)}}
+    </style>
+    <style>  
+        #datalist{
+            position: relative;
+            left: 50%;
+            width: 40%;
+            border-top-width: 1px;
+            border-top-style: solid;
+            border-top-color: rgb(230, 189, 189);
+            padding: 5px 10px;
+            font-size: 15px;
+            color: rgb(177, 106, 104);
+            text-align: center
+        }
 
+        #datalist tr:nth-child(even) {
+            background: rgb(238, 211, 210)
+        }
+
+        #datalist tr:nth-child(odd) {
+            background: #FFF
+        }
+    </style>
+    <style>
+        /* 加上 -webkit- 注意兼容 */
+        h1 {
+            background: -webkit-linear-gradient(135deg,
+                    #0eaf6d,
+                    #ff6ac6 25%,
+                    #147b96 50%,
+                    #e6d205 55%,
+                    #2cc4e0 60%,
+                    #8b2ce0 80%,
+                    #ff6384 95%,
+                    #08dfb4);
+            /* 文字颜色填充设置为透明 */
+            -webkit-text-fill-color: transparent;
+            /* 背景裁剪，即让文字使用背景色 */
+            -webkit-background-clip: text;
+            /* 背景图放大一下，看着柔和一些 */
+            -webkit-background-size: 200% 100%;
+            /* 应用动画flowCss 12秒速度 无限循环 线性匀速动画*/
+            -webkit-animation: flowCss 12s infinite linear;
+        }
+
+        @-webkit-keyframes flowCss {
+            0% {
+                /* 移动背景位置 */
+                background-position: 0 0;
+            }
+
+            100% {
+                background-position: -400% 0;
+            }
+        }
+
+        h1:hover {
+            -webkit-animation: flowCss 4s infinite linear;
+        }
+    </style>
+</head> 
+<body style="background-color: #99CCFF">
+    <div class="deng-box2">     
+        <div class="deng">
+            <div class="xian"></div>
+            <div class="deng-a">
+                <div class="deng-b">
+                    <div class="deng-t">金</div>
+                </div>
+            </div>
+            <div class="shui shui-a">
+                <div class="shui-c"></div>
+                <div class="shui-b"></div>
+            </div>
+        </div>
+    </div>
+    <div class="deng-box3">
+        <div class="deng">
+            <div class="xian"></div>
+            <div class="deng-a">
+                <div class="deng-b">
+                    <div class="deng-t">榜</div>
+                </div>
+            </div>
+            <div class="shui shui-a">
+                <div class="shui-c"></div>
+                <div class="shui-b"></div>
+            </div>
+        </div>
+    </div>
+    <div class="deng-box1">
+        <div class="deng">
+            <div class="xian"></div>
+            <div class="deng-a">
+                <div class="deng-b">
+                    <div class="deng-t">题</div>
+                </div>
+            </div>
+            <div class="shui shui-a">
+                <div class="shui-c"></div>
+                <div class="shui-b"></div>
+            </div>
+        </div>
+    </div>
+    <div class="deng-box">
+        <div class="deng">
+            <div class="xian"></div>
+            <div class="deng-a">
+                <div class="deng-b">
+                    <div class="deng-t">名</div>
+                </div>
+            </div>
+            <div class="shui shui-a">
+                <div class="shui-c"></div>
+                <div class="shui-b"></div>
+            </div>
+        </div>
+    </div>
+    
+    <table style="position:absolute;width:45%;height:90%;top:5%">
+        <tr style="height: 50%;"><td><div id="c" style="height: 100%;z-index: 2;"></div></td></tr>
+        <tr style="height: 50%;"><td><div id="p" style="height: 100%;z-index: 2;"></div></td></tr>
+    </table>
+
+    <div style="position:relative;top:5%">
+    <h1 style="position:relative;left:57%;">2024届省句中毕业生去向表</h1>
+    <table style="position:relative;left:50%;">
+    <tr>
+        <td>
+            <label>班级：</label>
+            <select id='class' name='class' onchange="select_change()">
+                <option value="All">All</option>
+            </select>
+        </td>        
+        <td>
+            <label>录取省份：</label>
+            <select id='province' name="province" onchange="select_change()">
+                <option value="All">All</option>
+            </select>
+        </td>
+        <td>
+            <label>江苏13市：</label>
+            <select id='city' name='city' disabled='disabled' onchange='select_change()'>
+                <option value="All">All</option>
+            </select>
+        </td>
+        <td>
+            <input id="select" placeholder="请输入姓名或大学名…"></input>
+            <button onclick="$.getJSON('14.json',button_click)">搜索</button>
+            <span id="test"></span>
+        </td>
+    </tr>
+    </table>
+    <table id="datalist">
+        <tr>
+            <th>班级</th>
+            <th>姓名</th>
+            <th>录取省份</th>
+            <th>录取学校</th>
+            <th>录取专业</th>
+        </tr>
+    </table> 
+    <table style="position:relative;left:63%">
+        <tr>
+            <td></td>
+            <td><button onclick="prevPage()">上一页</button></td>
+            <td>第<span id = 'pagenum'>1</span>页/共<span id = 'total_pagenum'></span>页</td>
+            <td><button onclick="nextPage()">下一页</button></td>
+            <td></td>
+        </tr>
+    </table>
+    </div>
+
+    <script>
+        // 初始化中国echarts实例
+        var China = echarts.init(document.getElementById("c"));
+        var option_c = {
+            title: {  //标题样式
+                text: '',
+                x: "center",
+                textStyle: {
+                    fontSize: 20,
+                    color: "red"
+                },
+            },
+            tooltip: {  //这里设置提示框
+                trigger: 'item',  //数据项图形触发
+                backgroundColor: "red",  //提示框浮层的背景颜色。
+                //字符串模板(地图): {a}（系列名称），{b}（区域名称），{c}（合并数值）,{d}（无）
+                formatter: '地区：{b}<br/>人数：{c}'
+            },
+            series: [
+                {
+                    name: '人数',
+                    type: 'map',
+                    mapType: 'china',
+                    roam: true,//是否开启鼠标缩放和平移漫游
+                    itemStyle: {//地图区域的多边形 图形样式
+                        normal: {//是图形在默认状态下的样式
+                            label: {
+                                show: true,//是否显示标签
+                                textStyle: {
+                                    color: "black"
+                                }
+                            }
+                        },
+                        zoom: 1,  //地图缩放比例,默认为1
+                        emphasis: {//是图形在高亮状态下的样式,比如在鼠标悬浮或者图例联动高亮时
+                            label: { show: true }
+                        }
+                    },
+                    top: "0%",//组件距离容器的距离
+                    data: [
+                        { name: '北京', value: 0 },
+                        { name: '天津', value: 0 },
+                        { name: '上海', value: 2, itemStyle: {color: '#007ba7'}},
+                        { name: '重庆', value: 0 },
+                        { name: '河北', value: 0 },
+                        { name: '河南', value: 1, itemStyle: {color: '#89cff0'}},
+                        { name: '云南', value: 0 },
+                        { name: '辽宁', value: 1, itemStyle: {color: '#89cff0'}},
+                        { name: '黑龙江', value: 0 },
+                        { name: '湖南', value: 1, itemStyle: {color: '#89cff0'}},
+                        { name: '安徽', value: 1, itemStyle: {color: '#89cff0'} },
+                        { name: '山东', value: 1, itemStyle: {color: '#89cff0'}},
+                        { name: '新疆', value: 0 },
+                        { name: '江苏', value: 38, itemStyle: {color: '#d92121'}},
+                        { name: '浙江', value: 1, itemStyle: {color: '#89cff0'}},
+                        { name: '江西', value: 0 },
+                        { name: '湖北', value: 0 },
+                        { name: '广西', value: 0 },
+                        { name: '甘肃', value: 0 },
+                        { name: '山西', value: 0 },
+                        { name: '内蒙古', value: 0 },
+                        { name: '陕西', value: 0 },
+                        { name: '吉林', value: 0 },
+                        { name: '福建', value: 0 },
+                        { name: '贵州', value: 0 },
+                        { name: '广东', value: 1, itemStyle: {color: '#89cff0'}},
+                        { name: '青海', value: 0 },
+                        { name: '西藏', value: 0 },
+                        { name: '四川', value: 0 },
+                        { name: '宁夏', value: 0 },
+                        { name: '海南', value: 0 },
+                        { name: '台湾', value: 0 },
+                        { name: '香港', value: 0 },
+                        { name: '澳门', value: 0 }
+                    ]
+                }
+            ]
+        };
+        // 使用刚指定的配置项和数据显示图表。
+        China.setOption(option_c);
+
+
+        China.on('click', function (params) {  
+            if (params.componentType === 'series' && params.seriesType === 'map') {   
+                let select = document.getElementById('province');  
+                select.value = params.name;   
+                for (let i = 0; i < select.options.length; i++) {  
+                    if (select.options[i].value === params.name) {  
+                        select.selectedIndex = i;
+                        select_change()  
+                    break;  
+                    }  
+                }  
+            }  
+        });  
+
+        // 初始化江苏echarts实例
+        var Jiangsu = echarts.init(document.getElementById("p"));
+        var option_p = {
+            title: {  //标题样式
+                text: '',
+                x: "center",
+                textStyle: {
+                    fontSize: 20,
+                    color: "red"
+                },
+            },
+            tooltip: {  //这里设置提示框
+                trigger: 'item',  //数据项图形触发
+                backgroundColor: "red",  //提示框浮层的背景颜色。
+                //字符串模板(地图): {a}（系列名称），{b}（区域名称），{c}（合并数值）,{d}（无）
+                formatter: '地区：{b}<br/>人数：{c}'
+            },
+            series: [
+                {
+                    name: '人数',
+                    type: 'map',
+                    mapType: '江苏',
+                    roam: true,//是否开启鼠标缩放和平移漫游
+                    itemStyle: {//地图区域的多边形 图形样式
+                        normal: {//是图形在默认状态下的样式
+                            label: {
+                                show: true,//是否显示标签
+                                textStyle: {
+                                    color: "black"
+                                }
+                            }
+                        },
+                        zoom: 1,  //地图缩放比例,默认为1
+                        emphasis: {//是图形在高亮状态下的样式,比如在鼠标悬浮或者图例联动高亮时
+                            label: { show: true }
+                        }
+                    },
+                    top: "0%",//组件距离容器的距离
+                    data: [
+                        { name: '徐州市', value: 1,itemStyle: {color: '#89cff0'} },
+                        { name: '连云港市', value: 0 },
+                        { name: '宿迁市', value: 0 },
+                        { name: '淮安市', value: 0 },
+                        { name: '盐城市', value: 0 },
+                        { name: '镇江市', value: 4, itemStyle: {color: '#007ba7'}},
+                        { name: '扬州市', value: 2, itemStyle: {color: '#89cff0'}},
+                        { name: '泰州市', value: 0 },
+                        { name: '南通市', value: 0 },
+                        { name: '南京市', value: 24, itemStyle: {color: '#d92121'}},
+                        { name: '苏州市', value: 4, itemStyle: {color: '#007ba7'}},
+                        { name: '常州市', value: 2, itemStyle: {color: '#89cff0'}},
+                        { name: '无锡市', value: 1, itemStyle: {color: '#89cff0'}},
+                    ]
+                }
+            ]
+        };
+        // 使用刚指定的配置项和数据显示图表。
+        Jiangsu.setOption(option_p);
+
+
+        Jiangsu.on('click', function (params) {  
+            if (params.componentType === 'series' && params.seriesType === 'map') {   
+                let select = document.getElementById('city');  
+                select.value = params.name;   
+                for (let i = 0; i < select.options.length; i++) {  
+                    if (select.options[i].value === params.name) {  
+                        document.getElementById('province').selectedIndex = 10;
+                        select.selectedIndex = i;
+                        select_change()  
+                    break;  
+                    }  
+                }
+            }  
+        });  
+    </script>
+
+    <script>    //下拉菜单搜索内容
+        for (let i=1;i<16;i++){ 
+            document.getElementById('class').options.add(new Option(i, i));
+        }
+        const provinces = ["北京","天津","上海","重庆","河北","山西","辽宁","吉林","黑龙江","江苏","浙江","安徽","福建","江西","山东","河南","湖北","湖南","广东","海南","四川","贵州","云南","陕西","甘肃","青海","台湾","内蒙古","广西","西藏","宁夏","新疆","香港","澳门"];
+        for (let i=0;i<provinces.length;i++){ 
+            document.getElementById('province').options.add(new Option(provinces[i], provinces[i]));
+        }
+        const cities = ["南京市","无锡市","徐州市","常州市","苏州市","南通市","连云港市","淮安市","盐城市","扬州市","镇江市","泰州市","宿迁市"];  
+        for (let i=0;i<cities.length;i++){
+            document.getElementById('city').options.add(new Option(cities[i], cities[i]));
+        }
+  
+        var datalist = document.getElementById('datalist');     //表格数据
+        var table_row_num = 0;
+
+        function main(data){
+            table_row_num = 0;
+            document.getElementById('pagenum').textContent = 1;
+            for (let i=0;i<data.length;i++){
+                if (data[i].class == document.getElementById('class').value || document.getElementById('class').value == 'All'){
+                    if (data[i].province == document.getElementById('province').value || document.getElementById('province').value == 'All'){
+                        if(data[i].province != '江苏' || document.getElementById('city').value == 'All'|| data[i].city == document.getElementById('city').value){
+                        let newdata = document.createElement("tr");
+                        if(datalist.offsetHeight > window.innerHeight*0.7){
+                            newdata.style.display = "none";
+                        }else{
+                            newdata.style.display = "table-row"
+                            table_row_num ++;
+                        }
+                        let cell1 = document.createElement("td");
+                        cell1.textContent = data[i].class;
+                        newdata.appendChild(cell1);
+                        let cell2 = document.createElement("td");
+                        cell2.textContent = data[i].name;
+                        newdata.appendChild(cell2);
+                        let cell3 = document.createElement("td");
+                        cell3.textContent = data[i].province;
+                        newdata.appendChild(cell3);
+                        let cell4 = document.createElement("td");
+                        cell4.textContent = data[i].university;
+                        newdata.appendChild(cell4);
+                        let cell5 = document.createElement("td");
+                        cell5.textContent = data[i].subject;
+                        newdata.appendChild(cell5);
+                        datalist.appendChild(newdata);
+                        }
+                    }
+                }
+            }
+            if(table_row_num != 0){
+                document.getElementById('total_pagenum').innerHTML = Math.ceil((datalist.getElementsByTagName("tr").length-1) / table_row_num);
+            }else{
+                document.getElementById('total_pagenum').innerHTML = '1';
+            }
+        }
+        
+        function select_change(){      //搜索刷新
+            document.getElementById('pagenum').textContent = 1;
+            datalist.innerHTML = '<tr><th>班级</th><th>姓名</th><th>录取省份</th><th>录取学校</th><th>录取专业</th></tr>';
+            if(document.getElementById('province').value == '江苏'){       //判断是否为江苏
+                document.getElementById('city').disabled = false;
+            }
+            else{
+                document.getElementById('city').disabled = true;
+                document.getElementById('city').value = ‘
+            }
+            $.getJSON('14.json',main);
+        }
+
+        function fuzzyMatch(keyword, referword) {  //模糊搜索
+            if (referword.includes(keyword)) {  
+                return true; // 包含，视为匹配  
+            }  
+                return false; // 不包含，不匹配  
+        }  
+
+        function button_click(data){    //大学搜索
+            table_row_num = 0;
+            document.getElementById('pagenum').textContent = 1;
+            datalist.innerHTML = '<tr><th>班级</th><th>姓名</th><th>录取省份</th><th>录取学校</th><th>录取专业</th></tr>';
+            document.getElementById('class').selectedIndex = 0;
+            document.getElementById('province').selectedIndex = 0;
+            document.getElementById('city').selectedIndex = 0;
+            for (let i=0;i<data.length;i++){
+                if (fuzzyMatch(document.getElementById('select').value,data[i].university)||fuzzyMatch(document.getElementById('select').value,data[i].name)){
+                    let newdata = document.createElement("tr");
+                    if(datalist.offsetHeight > window.innerHeight*0.7){
+                        newdata.style.display = "none";
+                    }else{
+                        newdata.style.display = "table-row";
+                        table_row_num ++;
+                    }
+                    let cell1 = document.createElement("td");
+                    cell1.textContent = data[i].class;
+                    newdata.appendChild(cell1);
+                    let cell2 = document.createElement("td");
+                    cell2.textContent = data[i].name;
+                    newdata.appendChild(cell2);
+                    let cell3 = document.createElement("td");
+                    cell3.textContent = data[i].province;
+                    newdata.appendChild(cell3);
+                    let cell4 = document.createElement("td");
+                    cell4.textContent = data[i].university;
+                    newdata.appendChild(cell4);
+                    let cell5 = document.createElement("td");
+                    cell5.textContent = data[i].subject;
+                    newdata.appendChild(cell5);
+                    datalist.appendChild(newdata);
+                }
+            }
+            if(table_row_num != 0){
+                document.getElementById('total_pagenum').innerHTML = Math.ceil((datalist.getElementsByTagName("tr").length-1) / table_row_num);
+            }else{
+                document.getElementById('total_pagenum').innerHTML = '1';
+            }
+        }
+
+        function nextPage(){    
+            if(document.getElementById('pagenum').textContent < document.getElementById('total_pagenum').textContent){
+                let tr = datalist.getElementsByTagName("tr");
+                function first_table_row(){     //返回表格第一行数据的序号
+                    for (let i=1;i<tr.length;i++) {
+                        if (tr[i].style.display == 'table-row') {  // 如果找到了，就返回这个tr的序号
+                            return i;
+                        }  
+                    }
+                }
+                let a = first_table_row();
+                for (let i=0;i<table_row_num;i++){
+                    tr[a+i].style.display = 'none';
+                    if((a+i+table_row_num) < tr.length){
+                        tr[a+i+table_row_num].style.display= 'table-row';
+                    }
+                }
+                document.getElementById('pagenum').textContent ++;
+            }
+        }
+
+        function prevPage(){    
+            if(document.getElementById('pagenum').textContent > 1){
+                let tr = datalist.getElementsByTagName("tr");
+                function first_table_row(){     //返回表格第一行数据的序号
+                    for (let i=1;i<tr.length;i++) {
+                        if (tr[i].style.display == 'table-row') {  // 如果找到了，就返回这个tr的序号
+                            return i;
+                        }  
+                    }
+                }
+                let a = first_table_row()
+                for (let i=table_row_num;i>0;i--){
+                    tr[a-i].style.display = 'table-row';
+                    if((a-1+i) < tr.length){
+                        tr[a-1+i].style.display = 'none';
+                    }
+                }
+                document.getElementById('pagenum').textContent --;
+            }
+        }
+        $.getJSON('14.json',main);
+    </script>
+
+</body>
+</html>
