@@ -353,7 +353,6 @@
         // 使用刚指定的配置项和数据显示图表。
         Jiangsu.setOption(option_p);
 
-
         Jiangsu.on('click', function (params) {  
             if (params.componentType === 'series' && params.seriesType === 'map') {   
                 let select = document.getElementById('city');  
@@ -384,9 +383,9 @@
         }
   
         var datalist = document.getElementById('datalist');     //表格数据
-        var table_row_num = 0;
+        var table_row_num = 0;  //每页表格显示行数
 
-        function main(data){
+        function main(data){    //主表格程序
             table_row_num = 0;
             document.getElementById('pagenum').textContent = 1;
             for (let i=0;i<data.length;i++){
@@ -434,19 +433,28 @@
                 document.getElementById('city').disabled = false;
             }
             else{
-                document.getElementById('city').selectedIndex = 0;
                 document.getElementById('city').disabled = true;
-
+                document.getElementById('city').selectedIndex = 0;
             }
             $.getJSON('14.json',main);
         }
 
-        function fuzzyMatch(keyword, referword) {  //模糊搜索
-            if (referword.includes(keyword)) {  
-                return true; // 包含，视为匹配  
-            }  
-                return false; // 不包含，不匹配  
-        }  
+        function fuzzyMatch(keyword, referword) {   //模糊搜索
+            if(keyword == ''){
+                return true;
+            }else if (referword != null){
+                const keywordSet = new Set(keyword);  
+                for (let char of referword) {  
+                    if (keywordSet.has(char)) {  
+                        keywordSet.delete(char);  
+                        if (keywordSet.size === 0) {  
+                            return true;  
+                        }  
+                    }  
+                }  
+            }
+            return false;
+        }   
 
         function button_click(data){    //大学搜索
             table_row_num = 0;
