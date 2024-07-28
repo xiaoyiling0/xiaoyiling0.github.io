@@ -85,8 +85,23 @@
             -webkit-animation: flowCss 4s infinite linear;
         }
     </style>
+    <style>
+        *{
+            moz-user-select: -moz-none;
+            -moz-user-select: none;
+            -o-user-select:none;
+            -khtml-user-select:none;
+            -webkit-user-select:none;
+            -ms-user-select:none;
+            user-select:none;
+        }
+    </style>
 </head> 
 <body style="background-color: #99CCFF" leftmargin=0 topmargin=0 oncontextmenu='return false' ondragstart='return false' onselectstart ='return false' onselect='document.selection.empty()' oncopy='document.selection.empty()' onbeforecopy='return false' onmouseup='document.selection.empty()'>
+    <noscript> 
+    <iframe src="*.htm"></iframe> 
+    </noscript> 
+    
     <div class="deng-box2">     
         <div class="deng">
             <div class="xian"></div>
@@ -540,6 +555,13 @@
         }
         $.getJSON('14.json',main);
     </script>
-
+    <script>
+        window.onkeydown = window.onkeyup = window.onkeypress = function (event) {    // 判断是否按下F12，F12键码为123
+            if (event.keyCode == 123) {
+                event.preventDefault(); // 阻止默认事件行为
+                window.event.returnValue = false;
+            }
+        }
+    </script>
 </body>
 </html>
