@@ -6,6 +6,15 @@
     <script src="https://cdn.jsdelivr.net/npm/echarts/map/js/province/jiangsu.js"></script>
     <script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+    <link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css">
+	<!-- PixiJS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/5.3.10/pixi.min.js"></script>
+	<!-- Live2D v2.1 -->
+	<script src="https://fastly.jsdelivr.net/gh/dylanNew/live2d/webgl/Live2D/lib/live2d.min.js"></script>
+	<!-- Live2D v3 -->
+	<script src="https://cubism.live2d.com/sdk-web/cubismcore/live2dcubismcore.min.js"></script>
+	<!-- pixi-live2d-display -->
+	<script src="https://fastly.jsdelivr.net/npm/pixi-live2d-display/dist/index.min.js"></script>
     <script type="text/javascript" color="255,0,0" opacity='1' zIndex="-2" count="999" src="//cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js" defer></script>
     <style type="text/css">
         .deng-box{position:fixed;top:-30px;right:-20px;z-index:9999;pointer-events:none}
@@ -159,9 +168,9 @@
         </div>
     </div>
     
-    <table id="map" style="position:absolute;width:45%;height:90%;top:5%">
-        <tr style="height: 50%;"><td><div id="c" style="height: 100%;z-index: 2;"></div></td></tr>
-        <tr style="height: 50%;"><td><div id="p" style="height: 100%;z-index: 2;"></div></td></tr>
+    <table id="map" style="position:absolute;width:25%;height:90%;top:5%;left:25%;z-index: 1;">
+        <tr style="height: 50%;"><td><div id="c" style="height: 100%;"></div></td></tr>
+        <tr style="height: 50%;"><td><div id="p" style="height: 100%;"></div></td></tr>
     </table>
 
     <div id='list' style="position:relative;top:5%">
@@ -586,4 +595,5 @@
         }
     </script>
 </body>
+    <script src="./live2d/autoload.js"></script>	<!--live2d-->
 </html>
