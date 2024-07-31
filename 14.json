@@ -410,10 +410,10 @@
     {
         "class": 6,
         "name": "杜海舟",
-        "university": null,
-        "subject": null,
-        "province": null,
-        "city": null
+        "university": "江苏师范大学",
+        "subject": "电子信息工程",
+        "province": "江苏",
+        "city": "徐州市"
     },
     {
         "class": 6,
@@ -517,7 +517,7 @@
         "university": "南通大学",
         "subject": "小学教育",
         "province": "江苏",
-        "city": "南京市"
+        "city": "南通市"
     },
     {
         "class": 6,
@@ -530,10 +530,10 @@
     {
         "class": 6,
         "name": "尚乐然",
-        "university": null,
-        "subject": null,
-        "province": null,
-        "city": null
+        "university": "南通大学",
+        "subject": "交通设备与控制工程",
+        "province": "江苏",
+        "city": "南通市"
     },
     {
         "class": 6,
@@ -546,17 +546,17 @@
     {
         "class": 6,
         "name": "孙刘凯",
-        "university": null,
-        "subject": null,
-        "province": null,
-        "city": null
+        "university": "江苏科技大学",
+        "subject": "电子信息类",
+        "province": "江苏",
+        "city": "镇江市"
     },
     {
         "class": 6,
         "name": "王泽全",
-        "university": null,
-        "subject": null,
-        "province": null,
+        "university": "中北大学",
+        "subject": "安全工程",
+        "province": "山西",
         "city": null
     },
     {
@@ -570,10 +570,10 @@
     {
         "class": 6,
         "name": "王治诚",
-        "university": null,
-        "subject": null,
-        "province": null,
-        "city": null
+        "university": "河海大学",
+        "subject": "电气工程及其自动化",
+        "province": "江苏",
+        "city": "南京市"
     },
     {
         "class": 6,
@@ -594,8 +594,8 @@
     {
         "class": 6,
         "name": "吴晨安",
-        "university": null,
-        "subject": null,
+        "university": "大连交通大学",
+        "subject": "材料科学与工程",
         "province": null,
         "city": null
     },
@@ -642,16 +642,16 @@
     {
         "class": 6,
         "name": "杨子瑞",
-        "university": "哈尔滨工业大学（威海威海）",
-        "subject": null,
+        "university": "哈尔滨工业大学（威海）",
+        "subject": "土木工程",
         "province": "山东",
         "city": null
     },
     {
         "class": 6,
         "name": "姚景文",
-        "university": null,
-        "subject": null,
+        "university": "中国民用航空飞行学院",
+        "subject": "应用气象学",
         "province": null,
         "city": null
     },
@@ -659,17 +659,17 @@
         "class": 6,
         "name": "姚祎然",
         "university": "空军工程大学",
-        "subject": "导弹工程",
+        "subject": "导航工程",
         "province": "陕西",
         "city": null
     },
     {
         "class": 6,
         "name": "张博闻",
-        "university": null,
-        "subject": null,
-        "province": null,
-        "city": null
+        "university": "扬州大学",
+        "subject": "水利与水电工程",
+        "province": "江苏",
+        "city": "扬州市"
     },
     {
         "class": 6,
@@ -682,10 +682,10 @@
     {
         "class": 6,
         "name": "张昊",
-        "university": null,
-        "subject": null,
-        "province": null,
-        "city": null
+        "university": "南京林业大学",
+        "subject": "智能车辆",
+        "province": "江苏",
+        "city": "南京市"
     },
     {
         "class": 6,
@@ -706,10 +706,10 @@
     {
         "class": 6,
         "name": "张星阳",
-        "university": null,
-        "subject": null,
-        "province": null,
-        "city": null
+        "university": "江苏大学",
+        "subject": "口腔医学",
+        "province": "江苏",
+        "city": "镇江市"
     },
     {
         "class": 6,
@@ -730,10 +730,10 @@
     {
         "class": 6,
         "name": "张梓轩",
-        "university": null,
-        "subject": null,
-        "province": null,
-        "city": null
+        "university": "南京工程学院",
+        "subject": "电气工程及其自动化",
+        "province": "江苏",
+        "city": "南京市"
     },
     {
         "class": 6,
@@ -1372,7 +1372,7 @@
         "name": "王鹏",
         "university": "中国石油大学",
         "subject": "机械类",
-        "province": "北京",
+        "province": "山东",
         "city": null
     },
     {
